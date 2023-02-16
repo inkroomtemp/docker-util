@@ -1,7 +1,7 @@
 FROM golang:1.20.0-alpine3.16 AS build
 ADD . /go
 WORKDIR /go/cla
-RUN ls /go && ls /go/cla/clash && cd /go/cla/ && go env -w GO111MODULE=on && go env -w GOPROXY=https://goproxy.cn,direct && go get && go build -ldflags="-s -w" main.go && chmod +x main
+RUN cd /go/cla/ && rm -rf clash && git clone https://github.com/Kr328/clash.git clash && go env -w GO111MODULE=on && go env -w GOPROXY=https://goproxy.cn,direct && go get && go build -ldflags="-s -w" main.go && chmod +x main
 
 # build complete
 FROM alpine
