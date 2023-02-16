@@ -4,7 +4,6 @@ on:
   push:
    branches: ['clash_config']
    paths-ignore:
-    - '.github/**'
     - 'README.md'
   workflow_dispatch:
   
@@ -24,7 +23,7 @@ jobs:
        with:
          registry: ghcr.io
          username: ${{ github.repository_owner }}
-         password: ${{ secrets.GITHUB_TOKEN }}
+         password: ${{ secrets.ACTION_TT }}
 
      - name: Extract metadata (tags, labels) for Docker
        id: meta
