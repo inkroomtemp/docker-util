@@ -23,7 +23,7 @@ jobs:
        with:
          registry: ghcr.io
          username: ${{ github.repository_owner }}
-         password: ${{ secrets.ACTION_TT }}
+         password: ${{ secrets.GITHUB_TOKEN }}
 
      - name: Extract metadata (tags, labels) for Docker
        id: meta
@@ -33,7 +33,6 @@ jobs:
          tags: |
             type=semver,pattern={{date 'YYYYMMDD'}}
             type=sha
-            type=raw,value=latest
 
      - name: Build and push Docker image
        uses: docker/build-push-action@v4
