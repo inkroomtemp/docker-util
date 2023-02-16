@@ -1,15 +1,14 @@
-name: Create and publish a Docker image
+name: docker
 
 on:
  push:
-   branches: ['release']
-
-env:
- REGISTRY: ghcr.io
- IMAGE_NAME: ${{ github.repository }}
+   branches: ['master']
+   paths-ignore:
+    - '.github/**'
+    - 'README.md'
 
 jobs:
- build-and-push-image:
+ build:
    runs-on: ubuntu-latest
    permissions:
      contents: read
@@ -37,7 +36,7 @@ jobs:
             type=raw,value=latest
 
      - name: Build and push Docker image
-       uses: docker/build-push-action@v
+       uses: docker/build-push-action@v4
        with:
          context: .
          push: true
