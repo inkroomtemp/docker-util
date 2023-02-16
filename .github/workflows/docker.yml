@@ -1,12 +1,12 @@
 name: docker
 
 on:
- push:
+  push:
    branches: ['clash_config']
    paths-ignore:
     - '.github/**'
     - 'README.md'
-   workflow_dispatch:
+  workflow_dispatch:
   
 jobs:
  build:
