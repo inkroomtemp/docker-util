@@ -31,7 +31,7 @@ jobs:
        with:
          images: ghcr.io/inkroomtemp/clash_config
          tags: |
-            type=raw,pattern={{date 'YYYYMMDD'}}
+            type=semver,pattern={{date 'YYYYMMDD'}}
             type=sha
             type=raw,value=latest
 
