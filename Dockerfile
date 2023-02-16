@@ -3,7 +3,7 @@ ADD . /go
 WORKDIR /go/cla
 RUN cd /go/cla/ && go env -w GO111MODULE=on && go env -w GOPROXY=https://goproxy.cn,direct && go get && go build -ldflags="-s -w" main.go && chmod +x main
 
-
+# build complete
 FROM alpine
 COPY --from=build /go/cla/main /clash/
 WORKDIR /clash
