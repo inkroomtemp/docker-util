@@ -2,7 +2,7 @@ name: docker
 
 on:
  push:
-   branches: ['master']
+   branches: ['clash_config']
    paths-ignore:
     - '.github/**'
     - 'README.md'
